@@ -36,10 +36,10 @@ abstract class Manager{
                 WHERE a.id_".$this->tableName." = :id
                 ";
 
-        return $this->getOneOrNullResult(
-            DAO::select($sql, ['id' => $id], false), 
-            $this->className
-        );
+                return $this->getOneOrNullResult(
+                    DAO::select($sql, ['id' => $id], false), 
+                    $this->className
+                );
     }
 
     //$data = ['username' => 'Squalli', 'password' => 'dfsyfshfbzeifbqefbq', 'email' => 'sql@gmail.com'];

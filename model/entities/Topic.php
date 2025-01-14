@@ -10,10 +10,10 @@ use App\Entity;
 final class Topic extends Entity{
 
     private $id;
-    private $title;
+    private $topicName;
     private $user;
     private $category;
-    private $creationDate;
+    private $topicDate;
     private $closed;
 
     public function __construct($data){         
@@ -41,7 +41,7 @@ final class Topic extends Entity{
      * Get the value of title
      */ 
     public function getTitle(){
-        return $this->title;
+        return $this->topicName;
     }
 
     /**
@@ -50,7 +50,7 @@ final class Topic extends Entity{
      * @return  self
      */ 
     public function setTitle($title){
-        $this->title = $title;
+        $this->topicName = $title;
         return $this;
     }
 
@@ -72,6 +72,8 @@ final class Topic extends Entity{
     }
 
     public function __toString(){
-        return $this->title;
+        var_dump($this->topicName);die;
+        return $this->topicName;
+        
     }
 }
