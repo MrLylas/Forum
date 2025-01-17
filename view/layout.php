@@ -11,49 +11,66 @@
         <title>FORUM</title>
     </head>
     <body>
-        <div id="wrapper"> 
-            <div id="mainpage">
-                <!-- c'est ici que les messages (erreur ou succès) s'affichent-->
-                <h3 class="message" style="color: red"><?= App\Session::getFlash("error") ?></h3>
-                <h3 class="message" style="color: green"><?= App\Session::getFlash("success") ?></h3>
-                <header>
-                    <nav>
-                        <div id="nav-left">
-                            <a href="/">Accueil</a>
-                            <?php
-                            if(App\Session::isAdmin()){
-                                ?>
-                                <a href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
-                            <?php } ?>
-                        </div>
-                        <div id="nav-right">
-                        <?php
-                            // si l'utilisateur est connecté 
-                            if(App\Session::getUser()){
-                                ?>
-                                <a href="index.php?ctrl=security&action=profile"><span class="fas fa-user"></span>&nbsp;<?= App\Session::getUser()?></a>
-                                <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
-                                <?php
-                            }
-                            else{
-                                ?>
-                                <a href="index.php?ctrl=security&action=login">Connexion</a>
-                                <a href="index.php?ctrl=security&action=register">Inscription</a>
-                                <a href="index.php?ctrl=forum&action=index">Liste des catégories</a>
-                            <?php
-                            }
-                        ?>
-                        </div>
-                    </nav>
-                </header>
-                
-                <main id="forum">
-                    <?= $page ?>
-                </main>
+        <nav id="top-bar">
+            <a href="/">
+                <img id="logo-topicoeur" src="public/img/Topicoeur.png" alt="Logo Topicoeur">
+            </a>
+            <div class="search-bar">
+                <input class="search" type="text" placeholder="Search" >
+                <button id="submit-btn" type="submit"></button>
             </div>
-            <footer>
-                <p>&copy; <?= date_create("now")->format("Y") ?> - <a href="#">Règlement du forum</a> - <a href="#">Mentions légales</a></p>
-            </footer>
+            <?php
+            if(App\Session::isAdmin()){
+                ?>
+            <a href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
+            <?php } ?>
+
+            <div class="connect">
+                <?php
+                // si l'utilisateur est connecté 
+                if(App\Session::getUser()){
+                    ?>
+                    <a href="index.php?ctrl=security&action=profile"><span class="fas fa-user"></span>&nbsp;<?= App\Session::getUser()?></a>
+                    <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                    <?php
+                }
+                else{
+                    ?>
+                    <a href="index.php?ctrl=security&action=login"><div class="login-btn">Connexion</div></a>
+                    <a href="index.php?ctrl=security&action=register"><div class="signin-btn">Inscription</div></a>
+                    <?php
+                }
+                ?>
+            </div>
+        </nav>
+        <div class="container">
+            <nav id="side-bar">
+                <a href="/"><img src="public/img/Home.png" alt="Home"> Home</a>
+                <a href="/"><img src="public/img/Star.png" alt="Popular">Popular</a>
+                <a id="cat-list" href="index.php?ctrl=forum&action=index"><img src="public/img/Categories.png" alt="Popular">Categories</a>
+                <hr>
+                <hr>
+                <footer>
+                    <p> 
+                        <a href="#"><img src="public/img/Rules.png" alt="Home">Our Rules</a>
+                        <a href="#"><img src="public/img/PrivacyPolicy.png" alt="Home">Privacy Policy</a>
+                        &copy; <?= date_create("now")->format("Y") ?> 
+                    </p>
+                </footer>
+            </nav>
+            <div id="wrapper"> 
+                <div id="mainpage">
+                    <!-- c'est ici que les messages (erreur ou succès) s'affichent-->
+                    <h3 class="message" style="color: red"><?= App\Session::getFlash("error") ?></h3>
+                    <h3 class="message" style="color: green"><?= App\Session::getFlash("success") ?></h3>
+                    <header>
+                    </header>
+                    
+                    <main id="forum">
+                        <?= $page ?>
+                    </main>
+                </div>
+            </div>
         </div>
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -88,6 +105,6 @@
                 });
             })
         </script>
-        <script src="<?= PUBLIC_DIR ?>/js/script.js"></script>
+    <script src="<?= PUBLIC_DIR ?>/js/script.js"></script>
     </body>
 </html>

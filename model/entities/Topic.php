@@ -11,6 +11,7 @@ final class Topic extends Entity{
 
     private $id;
     private $topicName;
+    private $topicText;
     private $user;
     private $category;
     private $topicDate;
@@ -37,20 +38,20 @@ final class Topic extends Entity{
         return $this;
     }
 
-    /**
-     * Get the value of title
+        /**
+     * Get the value of id
      */ 
-    public function getTitle(){
+    public function getTopicName(){
         return $this->topicName;
     }
 
     /**
-     * Set the value of title
+     * Set the value of id
      *
      * @return  self
      */ 
-    public function setTitle($title){
-        $this->topicName = $title;
+    public function setTopicName($topicName){
+        $this->topicName = $topicName;
         return $this;
     }
 
@@ -71,9 +72,89 @@ final class Topic extends Entity{
         return $this;
     }
 
+    
+    /**
+     * Get the value of category
+     */ 
+    public function getCategory()
+    {
+        return $this->category;
+    }
+    
+    /**
+     * Set the value of category
+     *
+     * @return  self
+     */ 
+    public function setCategory($category)
+    {
+        $this->category = $category;
+        
+        return $this;
+    }
+    /**
+     * Get the value of topicDate
+     */ 
+    public function getTopicDate()
+    {
+        return $this->topicDate;
+    }
+
+    /**
+     * Set the value of topicDate
+     *
+     * @return  self
+     */ 
+    public function setTopicDate($topicDate)
+    {
+        $this->topicDate = $topicDate;
+
+        return $this;
+    }
+    /**
+     * Get the value of closed
+     */ 
+    public function getClosed()
+    {
+        return $this->closed;
+    }
+
+    /**
+     * Set the value of closed
+     *
+     * @return  self
+     */ 
+    public function setClosed($closed)
+    {
+        $this->closed = $closed;
+
+        return $this;
+    }
+    /**
+     * Get the value of topicText
+     */ 
+    public function getTopicText()
+    {
+        return $this->topicText;
+    }
+
+    /**
+     * Set the value of topicText
+     *
+     * @return  self
+     */ 
+    public function setTopicText($topicText)
+    {
+        $this->topicText = $topicText;
+
+        return $this;
+    }
     public function __toString(){
-        var_dump($this->topicName);die;
+
         return $this->topicName;
         
     }
+
+
+
 }
