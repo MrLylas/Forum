@@ -13,4 +13,16 @@ class PostManager extends Manager{
     public function __construct(){
         parent::connect();
     }
+
+    public function findPostByTopics($id) {
+
+        $sql = "SELECT * FROM ".$this->tableName." p WHERE p.topic_id = :id";
+
+        // la requête renvoie plusieurs enregistrements --> getMultipleResults
+        return  $this->getMultipleResults(
+            DAO::select($sql, ['id' => $id]), 
+            $this->className
+        );
+        
+    }
 }

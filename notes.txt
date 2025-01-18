@@ -1,15 +1,6 @@
-<?php
-    $category = $result["data"]['category']; 
-    $topics = $result["data"]['topics'];   
-?>
-
-<h1>Liste des topics</h1>
-
-
-<?php
-if ($topics){
+if ($topics = $result["data"]['topics']){
     foreach($topics as $topic ){ ?>
-        <a class="topic-link" href="index.php?ctrl=forum&action=listPostsByTopic&id=<?= $topic->getId() ?>">
+        <a class="topic-link" href="index.php?ctrl=forum&action=findPostsByTopic&id=<?= $category->getId() ?>">
             <div class="topic-card">
                 <p><?= $topic ?> par <?= $topic->getUser() ?></p><br>
                 <?= $topic->getTopicText() ?><br><br>
