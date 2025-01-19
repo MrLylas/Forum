@@ -64,14 +64,17 @@ class ForumController extends AbstractController implements ControllerInterface{
 
     public function addCategoryForm(){
 
-        $categoryManager = new CategoryManager(); 
-
-
         return [
             "view" => VIEW_DIR."forum/addCategoryForm.php",
             "meta_description" => "Add Category Form : "
             ]
         ;
     }
-    
+
+    public function addCategory(){
+
+        if(isset($_POST['submit'])){
+            add($_POST);
+        }
+    }
 }
