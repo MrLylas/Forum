@@ -7,6 +7,7 @@ use App\ControllerInterface;
 use Model\Managers\CategoryManager;
 use Model\Managers\TopicManager;
 use Model\Managers\PostManager;
+use Model\Managers\UserManager;
 
 class ForumController extends AbstractController implements ControllerInterface{
 
@@ -60,5 +61,13 @@ class ForumController extends AbstractController implements ControllerInterface{
             ]
         ];
     }
+
+    // public function listUser($id){
+
+    //     $userManager = new UserManager();
+
+    //     $users = $userManager->findUser($id);
+
+    // }
 
 }

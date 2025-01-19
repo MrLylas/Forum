@@ -13,4 +13,18 @@ class UserManager extends Manager{
     public function __construct(){
         parent::connect();
     }
+
+    // public function findUser($id){
+
+    //     $sql = "
+    //     SELECT * 
+    //     FROM ".$this->tableName." t 
+    //     WHERE t.category_id = :id";
+
+    //     // la requête renvoie plusieurs enregistrements --> getMultipleResults
+    //     return  $this->getMultipleResults(
+    //     DAO::select($sql, ['id' => $id]), 
+    //     $this->className
+    //     );
+    // }
 }

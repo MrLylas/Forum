@@ -21,10 +21,10 @@
             </div>
             <button id="submit-btn" type="submit"><img src="public/img/MagnifyingGlass.png" alt="Search logo"></button>
             <?php
-            if(App\Session::isAdmin()){
+            // if(App\Session::isAdmin()){
                 ?>
             <a href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
-            <?php } ?>
+            <?php //} ?>
 
             <div class="connect">
                 <?php
