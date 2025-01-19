@@ -62,12 +62,16 @@ class ForumController extends AbstractController implements ControllerInterface{
         ];
     }
 
-    // public function listUser($id){
+    public function addCategoryForm(){
 
-    //     $userManager = new UserManager();
+        $categoryManager = new CategoryManager(); 
 
-    //     $users = $userManager->findUser($id);
 
-    // }
-
+        return [
+            "view" => VIEW_DIR."forum/addCategoryForm.php",
+            "meta_description" => "Add Category Form : "
+            ]
+        ;
+    }
+    
 }
